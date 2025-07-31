@@ -1,0 +1,4 @@
+*.pyc
+__pycache__/
+kai_memory.json
+.env
