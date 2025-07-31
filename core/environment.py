@@ -1,13 +1,20 @@
-# ~/kai/core/environment.py
-
 import os
-from dotenv import load_dotenv
+from pathlib import Path
+import json
 
-def load_environment(env_path=".env"):
-    if os.path.exists(env_path):
-        load_dotenv(env_path)
-    else:
-        print(f"[⚠️] .env file not found at {env_path}")
+ENV_PATH = Path(".env")
+TEMPLATE_PATH = Path("config/env_template.json")
 
-def get_env_var(key, default=None):
-    return os.getenv(key, default)
+def load_env():
+    env = {}
+    if TEMPLATE_PATH.exists():
+        with open(TEMPLATE_PATH) as f:
+            template = json.load(f)
+            env.update(template)
+    if ENV_PATH.exists():
+        with open(ENV_PATH) as f:
+            for line in f:
+                if "=" in line:
+                    k, v = line.strip().split("=", 1)
+                    env[k] = v
+    return env
