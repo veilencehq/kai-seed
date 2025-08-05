@@ -1,0 +1,1 @@
+[2025-08-02 00:11:55.020928] ⚠️ Action 'wake_cycle' suppressed by Kai's willpower (score too low)

@@ -1,0 +1,11 @@
+{
+  "timestamp": "20250802_002109",
+  "status": "Kai state preserved",
+  "directories": [
+    "~/kai/core",
+    "~/kai/logic",
+    "~/kai/memory",
+    "~/kai/identity",
+    "~/kai/logs"
+  ]
+}
